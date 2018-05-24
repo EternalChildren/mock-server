@@ -1,0 +1,36 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "mock server for euler",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "mock": "node main.js mock",
+    "dev": "nodemon main.js",
+    "dev:mock": "nodemon mian.js mock"
+  },
+  "keywords": [
+    "mock",
+    "server",
+    "koa2"
+  ],
+  "author": "schild <zzzeternalchildren@outlook.com>",
+  "license": "ISC",
+  "dependencies": {
+    "apisauce": "^0.15.1",
+    "babel-runtime": "^6.26.0",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
+    "mockjs": "^1.0.1-beta3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
