@@ -1,30 +1,11 @@
 import _fs from '../util/fs'
 const router = require('koa-router')()
-const __MOCK__ = process.argv.includes('mock')
-
-let reg = /(?<=\bcontrollers).+(?=.js)/g
-if (__MOCK__) {
-  reg = /(?<=\bmock\/).+(?=.js)/g
-} else {
-  reg = /(?<=\bcontrollers\/).+(?=.js)/g
-}
 
 const addRouter = (src, info) => {
+  const reg = /(?<=\bmock\/).+(?=.js)/g
   const routerUrl = `/${src.match(reg)[0]}`
-  switch (info.method) {
-    case 'GET': {
-      router.get(routerUrl, info.callback)
-      break
-    }
-    case 'POST': {
-      router.post(routerUrl, info.callback)
-      break
-    }
-    default: {
-      router.get(routerUrl, info.callback)
-      break
-    }
-  }
+  const method = info.method.toLowerCase()
+  router[method](routerUrl, info.callback)
 }
 
 const mapRouters = async (src, router) => {
