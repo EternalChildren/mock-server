@@ -16,7 +16,7 @@
 ```cmd
     git clone git@github.com:EternalChildren/mock-server.git
     npm i
-    npm run dev:mock
+    npm start
 ```
 访问http://localhost:1516/data-one<br/>
 可以看到`{"status":"0000","msg":"成功","res":"data-one"}`
@@ -32,7 +32,7 @@
          }
 ```
 共有4个命令：
-启用proxy server之前需要将https://example/替换成自身项目的根ip
+启用proxy server之前需要将"https://example/"替换成自身项目的根ip
  1. start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;启动proxy server
  2. mock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;启动mock server
  3. dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热更新方式启动proxy server
@@ -71,7 +71,7 @@ mock server采取了适配文件夹的模式来搭建mock server 路由系统<br
 另一方面不喜欢采取将mock数据置于前端代码源（这是大部分前端采取的一种方式）<br/>
 所以决定自己搭建一个简单易用并且功能强大本地mock server<br/>
 README.md做的比较次，不要在意细节，有疑问直接issues<br/>
-希望大家喜欢，欢迎start！！欢迎issues！！！<br/>
+希望大家喜欢，欢迎star！！欢迎issues！！！<br/>
 
   [1]: https://www.npmjs.com/package/apisauce
   [2]: https://github.com/nuysoft/Mock/wiki

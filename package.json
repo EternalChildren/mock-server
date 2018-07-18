@@ -4,10 +4,8 @@
   "description": "mock server for euler",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js https://api.ybwrp.site/",
-    "mock": "node main.js mock",
-    "dev": "nodemon main.js https://api.ybwrp.site/",
-    "dev:mock": "nodemon mian.js mock"
+    "start": "node main.js http://192.168.1.105:1516",
+    "dev": "nodemon main.js http://192.168.1.105:1516"
   },
   "keywords": [
     "mock",
@@ -17,15 +15,15 @@
   "author": "schild <zzzeternalchildren@outlook.com>",
   "license": "ISC",
   "dependencies": {
-    "apisauce": "^0.15.1",
+    "apisauce": "^0.15.2",
     "babel-runtime": "^6.26.0",
-    "koa": "^2.5.1",
-    "koa-body": "^2.5.0",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
     "koa-router": "^7.4.0",
     "mockjs": "^1.0.1-beta3"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",

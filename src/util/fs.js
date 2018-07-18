@@ -19,7 +19,21 @@ const stat = (file) => {
     })
   })
 }
+
+const accessFOK = (file) => {
+  return new Promise((resolve, reject) => {
+    fs.access(file, fs.constants.F_OK, (err) => {
+      if (err) {
+        resolve(false)
+      } else {
+        resolve(true)
+      }
+    })
+  })
+}
+
 export default {
   readdir,
-  stat
+  stat,
+  accessFOK
 }

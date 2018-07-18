@@ -1,8 +1,8 @@
 import Mock from 'mockjs'
 import random from '../../../util/random'
 
-const callback = (ctx, next) => {
-  const data = Mock.mock({
+module.exports = () => {
+  return Mock.mock({
     status: '0000',
     msg: '成功',
     'res|1-5': [
@@ -20,11 +20,4 @@ const callback = (ctx, next) => {
       }
     ]
   })
-  ctx.body = data
-  next()
-}
-
-module.exports = {
-  method: 'GET',
-  callback
 }

@@ -1,11 +1,8 @@
 import Mock from 'mockjs'
 import random from '../../../util/random'
-import {filterParamsForUrl} from '../../../util/util'
 
-const callback = (ctx, next) => {
-  const params = filterParamsForUrl(ctx.url)
-  ctx.assert(params.sid, 401, 'sid not found')
-  const data = Mock.mock({
+module.exports = () => {
+  return Mock.mock({
     status: '0000',
     msg: '成功',
     res: {
@@ -22,11 +19,4 @@ const callback = (ctx, next) => {
       ]
     }
   })
-  ctx.body = data
-  next()
-}
-
-module.exports = {
-  method: 'GET',
-  callback
 }

@@ -2,12 +2,13 @@ import {create} from 'apisauce'
 const baseurlFilter = () => {
   const argv = process.argv
   for (let item of argv) {
-    const reg = /https:\/\//g
-    if (reg.test(item)) {
+    const httpReg = /^http:\/\//g
+    const httpsReg = /^https:\/\//g
+    if (httpReg.test(item) || httpsReg.test(item)) {
       return item
     }
   }
-  return 'http://www.eulerfinance.com'
+  throw Error('Unable to match the address for server')
 }
 
 const api = create({
