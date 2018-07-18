@@ -4,8 +4,8 @@
   "description": "mock server for euler",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js http://192.168.1.105:1516",
-    "dev": "nodemon main.js http://192.168.1.105:1516"
+    "start": "node main.js ",
+    "dev": "nodemon main.js "
   },
   "keywords": [
     "mock",

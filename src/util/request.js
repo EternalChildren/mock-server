@@ -8,7 +8,7 @@ const baseurlFilter = () => {
       return item
     }
   }
-  throw Error('Unable to match the address for server')
+  throw Error('Unable to match the address for proxy server')
 }
 
 const api = create({
@@ -16,8 +16,7 @@ const api = create({
   headers: {
     'Cache-Control': 'no-cache',
     'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'appid': 'EL0001'
+    'Content-Type': 'application/json'
   }
 })
 

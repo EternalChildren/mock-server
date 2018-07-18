@@ -13,35 +13,36 @@
  4. 能够mock服务器与test服务器双端任意切换
 
 ## 2.如何开始
+
 ```cmd
     git clone git@github.com:EternalChildren/mock-server.git
     npm i
     npm start
 ```
-访问http://localhost:1516/data-one<br/>
+添加请求头部mock字段为true
+之后访问http://localhost:1516/data
 可以看到`{"status":"0000","msg":"成功","res":"data-one"}`
 <br/>便代表mock服务器启动成功<br/>
 
 ## 3.命令介绍
+
 ```json
       "scripts": {
-         "start": "node main.js https://example/",
-         "mock": "node main.js mock",
-         "dev": "nodemon main.js https://example/",
-         "dev:mock": "nodemon mian.js mock"
+         "start": "node main.js ${your proxy server}",
+         "dev": "nodemon main.js ${your proxy server}",
          }
 ```
-共有4个命令：
-启用proxy server之前需要将"https://example/"替换成自身项目的根ip
+
+共有2个命令：
+启用mock server之前需要将${your proxy server}替换成自身项目的api请求根ip
  1. start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;启动proxy server
- 2. mock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;启动mock server
- 3. dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热更新方式启动proxy server
- 4. dev:mock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热更新方式启动mock server
+ 2. dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热更新方式启动proxy server
 
 ## 4.Proxy Server
 1. 将代理ip替换成项目ip之后，启用proxy服务器
-2. 便可以自动将发往proxy的请求转发到目标服务器
-3. 拿到结果后再将其请求结果返回
+2. 请求头部携带mock字段则将读取mock数据
+3. 如果无mock字段则将请求转发目标服务器获取数据
+4. 返回mock数据或者目标服务器数据
 
 request项目采用了apisauce---->[传送门][1]
 ```javascript
@@ -55,15 +56,12 @@ request项目采用了apisauce---->[传送门][1]
 这里做了设置了这三个基础请求头部，如果不需要可以删除，另外如果项目有需求在请求头携带token之类的auth数据可以手动修改此处<br/>
 另外如果对代理服务器有项目自身的需求的话需自身对源代码进行适配<br/>
 
-## 5.Mock Server
-1. 编写mock 数据 （此处需求学习mockjs库）---->[传送门][2]
-2. 启动mock server
-3. 接受到自己编写的mock数据
+## 5.Mock 数据
 
-mock server采取了适配文件夹的模式来搭建mock server 路由系统<br/>
-会读取mock文件夹来建立请求url<br/>
-比如请求 根ip:1516/api/test/abc<br/>
-那么实际上访问的就是 mock 文件下的 api文件夹下的 test文件夹下的 abc.js文件<br/>
+mock数据采用了mockjs库 ----> [传送门][2]
+tips:
+1. mock文件接受返回一个执行函数或者对象
+2. 如果是函数则执行函数需返回一个对象
 
 ## 6.其他
 本项目源于找不到合适的mock server。<br/>

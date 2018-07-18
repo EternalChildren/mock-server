@@ -5,8 +5,7 @@ module.exports = () => {
     status: '0000',
     msg: '成功',
     res: {
-      'orrList|0-240': [43.18],
-      'csiiList|0-240': [43.18]
+      'dataTwo|0-240': [43.18]
     }
   })
 }
