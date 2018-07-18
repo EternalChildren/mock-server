@@ -19,8 +19,8 @@
     npm i
     npm start
 ```
-添加请求头部mock字段为true
-之后访问http://localhost:1516/data
+添加请求头部mock字段为true<br/>
+之后访问http://localhost:1516/data<br/>
 可以看到`{"status":"0000","msg":"成功","res":"data-one"}`
 <br/>便代表mock服务器启动成功<br/>
 
